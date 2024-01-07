@@ -128,6 +128,7 @@ system! {
         power::Power,
         power_rate::PowerRate,
         pressure::Pressure,
+        pressure_rate::PressureRate,
         radiant_exposure::RadiantExposure,
         radioactivity::Radioactivity,
         ratio::Ratio,
