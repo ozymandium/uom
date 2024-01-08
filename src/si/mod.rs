@@ -128,6 +128,7 @@ system! {
         power::Power,
         power_rate::PowerRate,
         pressure::Pressure,
+        pressure_rate::PressureRate,
         radiant_exposure::RadiantExposure,
         radioactivity::Radioactivity,
         ratio::Ratio,
@@ -230,6 +231,9 @@ pub mod marker {
     /// from mass density. This `Kind` is also applied to molar concentration and to catalytic
     /// activity concentration.
     pub trait ConstituentConcentrationKind: Kind {}
+
+    /// Separates pressure rate from volumetric power density.
+    pub trait PressureRateKind: Kind {}
 
     /// `impl_from` generates generic inter-Kind implementations of `From`.
     #[cfg(feature = "autoconvert")]
@@ -390,4 +394,6 @@ pub mod marker {
     impl_from!(Kind, InformationKind);
     impl_from!(ConstituentConcentrationKind, Kind);
     impl_from!(Kind, ConstituentConcentrationKind);
+    impl_from!(PressureRateKind, Kind);
+    impl_from!(Kind, PressureRateKind);
 }
