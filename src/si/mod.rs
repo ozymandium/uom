@@ -232,6 +232,7 @@ pub mod marker {
     /// activity concentration.
     pub trait ConstituentConcentrationKind: Kind {}
 
+    /// Separates pressure rate from volumetric power density.
     pub trait PressureRateKind: Kind {}
 
     /// `impl_from` generates generic inter-Kind implementations of `From`.
