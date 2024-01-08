@@ -232,6 +232,8 @@ pub mod marker {
     /// activity concentration.
     pub trait ConstituentConcentrationKind: Kind {}
 
+    pub trait PressureRateKind: Kind {}
+
     /// `impl_from` generates generic inter-Kind implementations of `From`.
     #[cfg(feature = "autoconvert")]
     #[macro_export]
@@ -391,4 +393,6 @@ pub mod marker {
     impl_from!(Kind, InformationKind);
     impl_from!(ConstituentConcentrationKind, Kind);
     impl_from!(Kind, ConstituentConcentrationKind);
+    impl_from!(PressureRateKind, Kind);
+    impl_from!(Kind, PressureRateKind);
 }
