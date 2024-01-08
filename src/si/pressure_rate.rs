@@ -15,8 +15,12 @@ quantity! {
     kind: dyn (crate::si::marker::PressureRateKind);
     units {
         @pascal_per_second: prefix!(none); "Pa/s", "pascal per second", "pascals per second";
+        @psi_per_second: 6.894_757_889_515_779_E3; "psi/s", "pound-force per square inch per second",
+            "pounds-force per square inch per second";
+        @bar_per_second: 1.0_E5; "bar/s", "bar per second", "bars per second";
+
         @pascal_per_minute: 1.0_E0 / 6.0_E1; "Pa/min", "pascal per minute", "pascals per minute";
-        @psi_per_minute: 6.894_757_E3 / 6.0_E1; "psi/min", "pounds per square inch per minute", "pounds per square inch per minute";
+        @psi_per_minute: 6.894_757_889_515_779_E3 / 6.0_E1; "psi/min", "pound-force per square inch per minute", "pound-force per square inch per minute";
         @bar_per_minute: 1.0_E5 / 6.0_E1; "bar/min", "bar per minute", "bars per minute";
     }
 }
@@ -24,7 +28,6 @@ quantity! {
 #[cfg(test)]
 mod tests {
     storage_types! {
-        use crate::lib::any::TypeId;
         use crate::num::One;
         use crate::si::quantities::*;
         use crate::si::time as t;
@@ -42,6 +45,8 @@ mod tests {
         fn check_units() {
 
             test::<p::pascal, t::second, r::pascal_per_second>();
+            test::<p::psi, t::second, r::psi_per_second>();
+            test::<p::bar, t::second, r::bar_per_second>();
             test::<p::pascal, t::minute, r::pascal_per_minute>();
             test::<p::psi, t::minute, r::psi_per_minute>();
             test::<p::bar, t::minute, r::bar_per_minute>();
