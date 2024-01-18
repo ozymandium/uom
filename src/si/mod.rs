@@ -94,6 +94,7 @@ system! {
         inductance::Inductance,
         information::Information,
         information_rate::InformationRate,
+        inverse_pressure::InversePressure,
         inverse_velocity::InverseVelocity,
         jerk::Jerk,
         length::Length,
